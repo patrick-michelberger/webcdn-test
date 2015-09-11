@@ -33,7 +33,6 @@ AboutYou.fetchProducts = function(categoryId, limit, productFields) {
 var formatProducts = function(products) {
     var results = [];
     for (var i = 0; i < products.length; i++) {
-    	console.log("products[i]: ", products[i]);
         results.push({
             "id": products[i].id,
             "name": products[i].name,

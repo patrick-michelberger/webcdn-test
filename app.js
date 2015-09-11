@@ -1,14 +1,19 @@
 var express = require('express');
 var app = express();
+app.set('view engine', 'jade');
 
 var AY = require('./aboutyou.js');
+var products = [];
 
-AY.fetchProducts(function(err, products) {
-    console.log("found products: ", products);
+AY.fetchProducts(function(err, response) {
+    products = response;
 });
 
 app.get('/', function(req, res) {
-    res.send('Hello World!');
+    res.render('index', {
+        title: 'WebCDN Testpage',
+        products: products
+    });
 });
 
 var server = app.listen(3000, function() {

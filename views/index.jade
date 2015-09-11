@@ -1,0 +1,6 @@
+html
+  head
+    title!= title
+  body
+    each product in products
+      img(src=product.image_url + "?width=300" alt=product.name)

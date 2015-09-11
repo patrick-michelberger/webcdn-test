@@ -19,6 +19,7 @@
   "homepage": "https://github.com/pmichelberger/webcdn-test",
   "dependencies": {
     "aboutyou-sdk": "^0.1.28",
-    "express": "^4.13.3"
+    "express": "^4.13.3",
+    "jade": "^1.11.0"
   }
 }
