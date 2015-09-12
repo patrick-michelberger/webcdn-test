@@ -3,4 +3,13 @@ html
     title!= title
   body
     each product in products
-      img(src=product.image_url + "?width=300" alt=product.name)
+      img(data-webcdn-fallback=product.image_url + "?width=300" alt=product.name)
+  script(src="/scripts/webcdn/dist/webcdn.js")
+  script.
+    var webcdn = new WebCDN({
+      "bucketUrl": "https://s3.eu-central-1.amazonaws.com/webcdn2/",
+      debug: true
+    });
+    webcdn.init('ws://localhost:1337', function() {
+    	console.log("WebCDN is ready!");
+    });
