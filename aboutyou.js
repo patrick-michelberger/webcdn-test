@@ -17,7 +17,7 @@ AboutYou.fetchProducts = function(categoryId, limit, productFields) {
     var criteria = AY.getProductSearchCriteria('GENERATE_OWN_SESSION');
     criteria.filterByCategoryIds(categoryId);
     criteria.selectProductFields(productFields);
-    criteria.setLimit(limit);
+    criteria.setLimit(limit, 300);
 
     // Execute search
     AY.fetchProductSearch(criteria, function(err, searchResult) {

@@ -2,14 +2,10 @@ html
   head
     title!= title
   body
-    each product in products
-      img(data-webcdn-fallback=product.image_url + "?width=300" alt=product.name)
-  script(src="/scripts/webcdn/dist/webcdn.js")
+    img(data-webcdn-fallback="https://s3.eu-central-1.amazonaws.com/webcdn2/webcdn_test_image_small.jpeg")
+  script(src="/scripts/webcdn/dist/WebCDN.js")
   script.
     var webcdn = new WebCDN({
-      "bucketUrl": "https://s3.eu-central-1.amazonaws.com/webcdn2/",
       debug: true
     });
-    webcdn.init('ws://webcdn.michelberger.info:1337', function() {
-    	console.log("WebCDN is ready!");
-    });
+    webcdn.init('ws://webcdn.michelberger.info:1337');
