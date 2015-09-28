@@ -6,17 +6,9 @@ app.set('views', path.join(__dirname, 'views'));
 app.set('view engine', 'jade');
 app.use('/scripts', express.static(__dirname + '/bower_components/'));
 
-var AY = require('./aboutyou.js');
-var products = [];
-
-AY.fetchProducts(function(err, response) {
-    products = response;
-});
-
 app.get('/', function(req, res) {
     res.render('index', {
-        title: 'WebCDN Testpage',
-        products: products
+        title: 'WebCDN Testpage'
     });
 });
 
