@@ -4,7 +4,7 @@ var path = require('path');
 
 app.set('views', path.join(__dirname, 'views'));
 app.set('view engine', 'jade');
-app.use('/scripts', express.static(__dirname + '/bower_components/'));
+app.use('/scripts', express.static(__dirname + '/webcdn-client/'));
 
 app.get('/', function(req, res) {
     res.render('index', {
