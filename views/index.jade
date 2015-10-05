@@ -2,8 +2,34 @@ html
   head
     title!= title
   body
-    img(id="webcdn_image" data-webcdn-fallback="https://s3.eu-central-1.amazonaws.com/webcdn2/webcdn_test_image_small.jpeg")
-  script(src="/scripts/dist/webcdn.js")
+  
+    h1 WebCDN Testpage
+  
+    div(id="webcdn_image_1")  
+      img(data-webcdn-fallback="https://s3.eu-central-1.amazonaws.com/webcdn2/webcdn_test_image_small.jpeg" width="325" height="411")
+      h2(class="description") 1st Object
+  
+    div(id="webcdn_image_2")
+      img(data-webcdn-fallback="https://s3.eu-central-1.amazonaws.com/webcdn2/webcdn_test_image_small_2.jpeg" data-webcdn-hash="d866ec069c7e07a5069be1586ba26fd0224e892d" data-webcdn-load-manually="true" width="325" height="411")
+      h2(class="description") 2nd Object
+      
+  script(src="/scripts/ dist/webcdn.js")
   script.
-    var webcdn = new WebCDN();
-    webcdn.init('ws://webcdn.michelberger.info:1337');
+    var webcdn = new WebCDN({
+      debug: true
+    });
+    webcdn.init('ws://webcdn.michelberger.info:1337', function() {
+      setTimeout(function() {
+        webcdn.load("d866ec069c7e07a5069be1586ba26fd0224e892d");
+      }, 2000);
+    });
+  style.
+    body {
+      font-family: "Helvetica"
+    }
+    #webcdn_image_1,
+    #webcdn_image_2 {
+      width: 325px;
+      position: relative;
+      float: left;
+    }
