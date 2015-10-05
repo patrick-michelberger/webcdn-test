@@ -15,9 +15,7 @@ html
       
   script(src="/scripts/dist/webcdn.js")
   script.
-    var webcdn = new WebCDN({
-      debug: true
-    });
+    var webcdn = new WebCDN();
     webcdn.init('ws://webcdn.michelberger.info:1337', function() {
       setTimeout(function() {
         webcdn.load("d866ec069c7e07a5069be1586ba26fd0224e892d");
